@@ -1,0 +1,27 @@
+# Change paramentres below to appropriate values and set CONFIGURED to yes.
+CONFIGURED=yes
+
+# Default timeout until child process is killed during server upgrade,
+# it has *no* relation to option "timeout" in server's config.rb.
+TIMEOUT=60
+
+# Path to your web application, sh'ld be also set in server's config.rb,
+# option "working_directory". Rack's config.ru is located here.
+APP_ROOT=/var/www/helpy
+
+# Server's config.rb, it's not a rack's config.ru
+CONFIG_RB=/etc/unicorn.conf
+
+# Where to store PID, sh'ld be also set in server's config.rb, option "pid".
+PID=/var/run/unicorn.pid
+RAILS_ENV="production"
+UNICORN_OPTS="-D -c $CONFIG_RB -E $RAILS_ENV"
+
+PATH=/usr/local/rvm/rubies/ruby-2.2.3/bin:/usr/local/sbin:/usr/bin:/bin:/sbin:/usr/local/rvm/bin:/usr/local/rvm/gems/ruby-2.2.3@global/bin:/usr/local/rvm/gems/ruby-2.2.3/bin/
+export GEM_HOME=/usr/local/rvm/gems/ruby-2.2.3
+export GEM_PATH=/usr/local/rvm/gems/ruby-2.2.3:/usr/local/rvm/gems/ruby-2.2.3@global
+DAEMON=/usr/local/rvm/gems/ruby-2.2.3/bin/unicorn
+
+# Generate by running `rake -f /home/rails/rails_project/Rakefile secret`
+export SECRET_KEY_BASE=helpy
+export APP_DATABASE_PASSWORD=helpy1234
