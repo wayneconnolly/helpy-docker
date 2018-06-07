@@ -1,4 +1,6 @@
 
+Note: this is old and other better alternatives now exist.
+
 Dockerise Helpy: A Modern Helpdesk Alternative
 ====================================
 
